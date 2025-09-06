@@ -1,12 +1,47 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-
-<h1>My blog</h1>
-<p>This is a H2.</p>
-
-</body>
+<html> 
+    <head> 
+        <title> Teкcт</title> 
+        <link rel="stylesheet" href="./style.css" />
+        <script src="./1.js" defer></script>
+    </head> 
+<body> 
+<div id="overlay"></div>
+<div class="container">
+    <div class="about">
+        <h1 class="headline">
+            Поп-ап для удаления товаров из корзины
+        </h1>
+        <button id="delete-btn">
+            Удалить все товары из корзины
+        </button>
+    </div>
+</div>
+<div id="popup" class="popup">
+    <div class="popup__content">
+      <h2 class="popup__title">
+        Вы действительно хотите удалить все товары из корзины?
+      </h2>
+      <div class="btn-container">
+        <button id="no-btn" class="popup__button">
+          Нет
+        </button>
+        <button id="yes-btn" class="popup__button">
+         Да
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="success" class="popup">
+    <div class="popup__content">
+      <h2 class="popup__title">
+        Товары из корзины были удалены
+      </h2>
+      <button id="buy-btn" class="popup__button">
+        Вернуться в каталог
+      </button>
+    </div>
+  </div>
+</div>
+</body> 
 </html>

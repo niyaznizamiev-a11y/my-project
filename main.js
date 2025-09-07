@@ -1,30 +1,28 @@
-const deleteBtn = document.getElementById("delete-btn");
+const togglePassword = document.getElementById('togglePassword');
+const passwordInput = document.getElementById('password');
 
-const popup = document.getElementById("popup");
-
-const noBtn = document.getElementById("no-btn");
-
-const yesBtn = document.getElementById("yes-btn");
-
-const success = document.getElementById("success");
-
-const buyBtn = document.getElementById("buy-btn");
-
-const overlay = document.getElementById("overlay");
-deleteBtn.addEventListener("click", () => {
-  popup.style.display = "block";
-  overlay.classList.add("show");
+togglePassword.addEventListener('click', function() {
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    this.textContent = type === 'password' ? '👁️' : '🔒';
 });
-noBtn.addEventListener("click", () => {
-  popup.style.display = "none";
-  overlay.classList.remove("show");
+
+// Переключение темы
+const themeToggle = document.getElementById('themeToggle');
+
+themeToggle.addEventListener('click', function() {
+    document.body.classList.toggle('dark-theme');
+    this.textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
 });
-yesBtn.addEventListener("click", () => {
-   popup.style.display = "none";
-  success.style.display = "block";
-  overlay.classList.add("show");
-});
-buyBtn.addEventListener("click", () => {
-  success.style.display = "none";
-  overlay.classList.remove("show");
+
+// Обработка формы
+const form = document.querySelector('.auth-form');
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    // Здесь должна быть логика авторизации
+    console.log('Авторизация с:', { email, password });
+    alert('Форма отправлена!');
 });

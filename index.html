@@ -1,47 +1,32 @@
 <!DOCTYPE html>
-<html> 
-    <head> 
-        <title> Teкcт</title> 
-        <link rel="stylesheet" href="./style.css" />
-        <script src="./main.js" defer></script>
-    </head> 
-<body> 
-<div id="overlay"></div>
-<div class="container">
-    <div class="about">
-        <h1 class="headline">
-            Поп-ап для удаления товаров из корзины
-        </h1>
-        <button id="delete-btn">
-            Удалить все товары из корзины
-        </button>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма авторизации</title>
+    <!--  Подключение стилей  -->
+    <link rel="stylesheet" href="./style.css" />
+    <!--  Подключение js  -->
+    <script src="./main.js" defer></script>
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+    <div class="auth-container">
+        <div class="auth-header">
+            <h2>Вход в систему</h2>
+        </div>
+        <form class="auth-form">
+            <div class="form-group">
+                <label for="email">Электронная почта</label>
+                <input type="email" id="email" placeholder="Введите ваш email" required>
+            </div>
+            <div class="form-group password-toggle">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" placeholder="Введите ваш пароль" required>
+                <span class="toggle-password" id="togglePassword"></span>
+            </div>
+            <button type="submit" class="btn">Войти</button>
+        </form>
     </div>
-</div>
-<div id="popup" class="popup">
-    <div class="popup__content">
-      <h2 class="popup__title">
-        Вы действительно хотите удалить все товары из корзины?
-      </h2>
-      <div class="btn-container">
-        <button id="no-btn" class="popup__button">
-          Нет
-        </button>
-        <button id="yes-btn" class="popup__button">
-         Да
-        </button>
-      </div>
-    </div>
-  </div>
-  <div id="success" class="popup">
-    <div class="popup__content">
-      <h2 class="popup__title">
-        Товары из корзины были удалены
-      </h2>
-      <button id="buy-btn" class="popup__button">
-        Вернуться в каталог
-      </button>
-    </div>
-  </div>
-</div>
-</body> 
+</body>
 </html>

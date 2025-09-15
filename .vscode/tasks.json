@@ -1,0 +1,18 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "start-live-server",
+            "type": "shell",
+            "command": "npx",
+            "args": [
+                "live-server",
+                "${workspaceFolder}",
+                "--port=5500",
+                "--open=/index.html"
+            ],
+            "isBackground": true,
+            "problemMatcher": []
+        }
+    ]
+}

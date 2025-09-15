@@ -1,8 +1,6 @@
 {
     "version": "0.2.0",
     "configurations": [
-        
-    
         {
             "type": "pwa-msedge",
             "name": "Launch Microsoft Edge",
@@ -54,4 +52,19 @@
             ]
         }
     ]
+}
+
+
+
+
+
+
+
+
+{
+  "scripts": {
+    "watch": "webpack --watch --progress --colors --config webpack.conf.js",
+    "dev": "webpack --progress --colors --config webpack.conf.js",
+    "prod": "NODE_ENV=production webpack -p --config webpack.conf.js",
+  }
 }

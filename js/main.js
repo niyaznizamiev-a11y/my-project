@@ -1,4 +1,5 @@
-import '../sum.js';
+import * as css from "../css/style.css";
+
 const togglePassword = document.getElementById('togglePassword');
 const passwordInput = document.getElementById('password');
 
@@ -18,12 +19,12 @@ themeToggle.addEventListener('click', function() {
 
 // Обработка формы
 const form = document.querySelector('.auth-form');
+// В файле main.js
 form.addEventListener('submit', function(e) {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     
-    // Здесь должна быть логика авторизации
-    console.log('Авторизация с:', { email, password });
-    alert('Форма отправлена!');
+    // Перенаправление на dashboard.html
+    window.location.href = 'dashboard.html';
 });

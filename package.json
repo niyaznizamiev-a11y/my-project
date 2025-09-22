@@ -63,6 +63,8 @@
     "picocolors": "^1.1.1",
     "pkg-dir": "^4.2.0",
     "randombytes": "^2.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "rechoir": "^0.8.0",
     "require-from-string": "^2.0.2",
     "resolve": "^1.22.10",
@@ -90,12 +92,22 @@
     "wildcard": "^2.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.28.4",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-react": "^7.27.1",
+    "babel-loader": "^10.0.0",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.4",
+    "path": "^0.12.7",
+    "style-loader": "^4.0.0",
     "webpack": "^5.101.3",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
   },
   "scripts": {
     "test": "sum.js",
-    "build": "webpack --mode=development --config webpack.config.js"
+    "dev": "webpack-dev-server --open --mode development",
+    "build": "webpack --mode=development"
   },
   "repository": {
     "type": "git",

@@ -1,57 +1,47 @@
-import path, {dirname} from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import {fileURLToPath} from "url";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+const path = require("path");
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-export default {
-    mode: 'development',
-    entry: './src/index.tsx',
-    plugins: [
-        new HtmlWebpackPlugin({template: './public/index.html'}),
-        new MiniCssExtractPlugin()
-    ],
-    output: {
-        clean: true,
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[contenthash].[name].js',
+module.exports = {
+  entry: "./src/index.js",
+  mode: "development",
+  output: {
+    filename: "./main.js",
+    path: path.resolve(__dirname, "dist")
+  },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "dist"),
     },
-    resolve: {
-        extensions: [".tsx", ".ts", ".js", ".jsx"],
-    },
-    module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                use: "ts-loader",
-                exclude: /node_modules/,
-            },
-            {
-                test: /\.(sa|sc|c)ss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: "css-loader",
-                        options: {
-                            modules: {
-                                namedExport: true,
-                            },
-                        },
-                    },
-                    "postcss-loader",
-                    "sass-loader",
-                ],
-            },
-        ],
-
-    },
-    devServer: {
-        port: 3000,
-        hot: true,
-        historyApiFallback: true,
-        open: true,
+    compress: true,
+    port: 3000,
+    hot: true,
+    open: true, // автоматически открыть браузер
+    client: {
+      logging: 'info', // включить логирование
+      overlay: true, // показывать ошибки на странице
     }
+  },
+  stats: 'normal', // добавить вывод статистики
 
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
+  test: /\.css$/,
+  use: [
+    "style-loader",  // внедряет стили в DOM
+    "css-loader"     // загружает CSS файлы
+  ]
+},
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ["file-loader"]
+      }
+    ]
+  }
 };
